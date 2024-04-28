@@ -147,6 +147,16 @@ const matchPredictionEnabled = true;
     }
   }
 
+  function setupLoadedMessage() {
+    const interval = setInterval(() => {
+      const div = document.getElementsByClassName("Feed__content")[0];
+      if (div) {
+        div.insertAdjacentHTML("afterbegin", loadedMessageHtml);
+        clearInterval(interval);
+      }
+    }, 500);
+  }
+
   function setupAutoReconnect() {
     const reconnectButtonContainer = document.querySelector("#__layout > div > div:nth-child(5)");
     const reconnectButton = document.querySelector(
@@ -164,17 +174,10 @@ const matchPredictionEnabled = true;
   function setupAutoBsc() {
     loaded = true;
 
-    console.log("[AutoBSC] AutoBSC loaded");
-
-    const interval = setInterval(() => {
-      const div = document.getElementsByClassName("Feed__content")[0];
-      if (div) {
-        div.insertAdjacentHTML("afterbegin", loadedMessageHtml);
-        clearInterval(interval);
-      }
-    }, 500);
-
+    setupLoadedMessage();
     setupAutoReconnect();
+
+    console.log("[AutoBSC] AutoBSC loaded");
   }
 
   const loadedMessageHtml = `<div data-v-de33a6f6="" data-v-48743964="">
