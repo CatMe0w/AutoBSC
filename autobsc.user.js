@@ -4,7 +4,7 @@
 // @homepageURL  https://github.com/CatMe0w/AutoBSC
 // @supportURL   https://github.com/CatMe0w/AutoBSC/issues
 // @license      MIT
-// @version      0.1.0
+// @version      0.1.1
 // @description  Auto completes Brawl Stars Championship live stream events
 // @author       catme0w
 // @match        https://event.supercell.com/brawlstars/*
