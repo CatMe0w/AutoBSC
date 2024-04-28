@@ -147,6 +147,20 @@ const matchPredictionEnabled = true;
     }
   }
 
+  function setupAutoReconnect() {
+    const reconnectButtonContainer = document.querySelector("#__layout > div > div:nth-child(5)");
+    const reconnectButton = document.querySelector(
+      "#__layout > div > div:nth-child(5) > div > div > div > div.baseModal__scroll > div > div > button > div.RectangleButton.RectangleButton--cta > div > div"
+    );
+
+    setInterval(() => {
+      if (reconnectButtonContainer.style.display !== "none") {
+        console.log("[AutoBSC] Reconnecting");
+        reconnectButton.click();
+      }
+    }, 1000);
+  }
+
   function setupAutoBsc() {
     loaded = true;
 
@@ -159,6 +173,8 @@ const matchPredictionEnabled = true;
         clearInterval(interval);
       }
     }, 500);
+
+    setupAutoReconnect();
   }
 
   const loadedMessageHtml = `<div data-v-de33a6f6="" data-v-48743964="">
